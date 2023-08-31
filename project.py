@@ -7,6 +7,9 @@ WIN = pygame.display.set_mode((WIDTH, HEIGHT)) # Window - pygame surface
 pygame.display.set_caption("Planet Simulation") # Window title
 WHITE = (255, 255, 255) # RGB color code for white
 YELLOW = (255, 255, 0) # RGB color code for yellow
+BLUE = (100, 149, 237) # RGB color code for blue
+RED = (188, 39, 50) # RGB color code for red
+DARK_GREY = (80, 78, 81) # RGB color code for dark grey
 
 class Planet:
     AU = 149.6e6 * 1000 # in meters; AU -> Astronomical Unit
@@ -40,7 +43,15 @@ def main():
     sun = Planet(0, 0, 30, YELLOW, 1.98892 * 10**30) # Sun object (even though it's not a planet :P)
     sun.sun = True
 
-    planets = [sun]
+    earth = Planet(-1 * Planet.AU, 0, 16, BLUE, 5.9742 * 10**24) # Earth object
+
+    mars = Planet(- 1.524 * Planet.AU, 0, 12, RED, 6.38 * 10**23) # Mars object
+
+    mercury = Planet(0.387 * Planet.AU, 0, 8, DARK_GREY, 3.30 * 10**23) # Mercury object
+
+    venus = Planet(0.723 * Planet.AU, 0, 14, WHITE, 4.8685 * 10**24) # Venus object
+
+    planets = [sun, earth, mars, mercury, venus]
 
     while run:
         clock.tick(60) # Set FPS to 60(max)
